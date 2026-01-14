@@ -8,9 +8,28 @@
 body { font-family: Arial; text-align: center; background-color: #f0f0f0; margin: 0; padding: 0; }
 header { background-color: #ff6600; color: white; padding: 20px; }
 main { margin: 20px; }
-input, select, button { padding: 10px; margin: 5px; font-size: 16px; width: 80%; max-width: 400px; }
-button { background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
-footer { background-color: #333; color: white; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+input, select, button {
+  padding: 10px;
+  margin: 5px;
+  font-size: 16px;
+  width: 80%;
+  max-width: 400px;
+}
+button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
 </style>
 </head>
 <body>
@@ -21,7 +40,7 @@ footer { background-color: #333; color: white; padding: 10px; position: fixed; b
 </header>
 
 <main>
-<input type="text" placeholder="أدخل رابط الفيديو هنا" id="videoUrl">
+<input type="text" id="videoUrl" placeholder="أدخل رابط الفيديو هنا">
 <select id="platform">
   <option value="tiktok">TikTok</option>
   <option value="facebook">Facebook</option>
@@ -34,54 +53,34 @@ footer { background-color: #333; color: white; padding: 10px; position: fixed; b
 &copy; 2026 Zain Video Downloader
 </footer>
 
-<!-- كود إعلان Adsterra -->
+<!-- إعلان Adsterra -->
 <script src="https://pl28473015.effectivegatecpm.com/2b/af/4c/2baf4c184524e2ec7c2d96e2d143dd64.js"></script>
 
 <script>
-async function downloadVideo() {
+function downloadVideo() {
     const url = document.getElementById("videoUrl").value.trim();
     const platform = document.getElementById("platform").value;
 
-    if (!url) return alert("⚠️ الرجاء إدخال رابط الفيديو!");
-
-    try {
-        let apiUrl;
-
-        if(platform === "tiktok") {
-            apiUrl = `https://api.tikmate.app/api/lookup?url=${encodeURIComponent(url)}`;
-            const res = await fetch(apiUrl);
-            if(!res.ok) throw new Error("فشل الحصول على رابط الفيديو");
-            const data = await res.json();
-            if(!data.download || !data.download[0].url) throw new Error("الرابط غير صالح");
-            downloadFile(data.download[0].url, "tiktok_video.mp4");
-
-        } else if(platform === "facebook") {
-            apiUrl = `https://fbdownloader.net/api?url=${encodeURIComponent(url)}`; // مثال API
-            const res = await fetch(apiUrl);
-            if(!res.ok) throw new Error("فشل الحصول على رابط الفيديو");
-            const data = await res.json();
-            downloadFile(data.downloadUrl || url, "facebook_video.mp4");
-
-        } else if(platform === "instagram") {
-            apiUrl = `https://api.instadownloader.org/api?url=${encodeURIComponent(url)}`; // مثال API
-            const res = await fetch(apiUrl);
-            if(!res.ok) throw new Error("فشل الحصول على رابط الفيديو");
-            const data = await res.json();
-            downloadFile(data.downloadUrl || url, "instagram_video.mp4");
-        }
-
-    } catch(err) {
-        alert("❌ " + err.message);
+    if (!url) {
+        alert("⚠️ الرجاء إدخال رابط الفيديو");
+        return;
     }
-}
 
-function downloadFile(fileUrl, fileName) {
-    const link = document.createElement("a");
-    link.href = fileUrl;
-    link.download = fileName;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    let redirectUrl = "";
+
+    if (platform === "tiktok") {
+        redirectUrl = "https://snapsave.app/redirect?url=" + encodeURIComponent(url);
+    }
+
+    if (platform === "facebook") {
+        redirectUrl = "https://fdown.net/download.php?URL=" + encodeURIComponent(url);
+    }
+
+    if (platform === "instagram") {
+        redirectUrl = "https://snapinsta.app/redirect?url=" + encodeURIComponent(url);
+    }
+
+    window.open(redirectUrl, "_blank");
 }
 </script>
 
