@@ -82,7 +82,8 @@ function downloadVideo() {
     }
 
     if (platform === "instagram") {
-        redirectUrl = "https://snapinsta.app/redirect?url=" + encodeURIComponent(url);
+        // رابط Instagram معدل ليعمل تحميل مباشر عبر SaveInsta
+        redirectUrl = "https://save-insta.com/download?url=" + encodeURIComponent(url);
     }
 
     window.open(redirectUrl, "_blank");
