@@ -68,6 +68,10 @@ footer {
   bottom: 0;
   width: 100%;
 }
+#adBanner {
+  margin-top: 15px;
+  text-align: center;
+}
 </style>
 </head>
 
@@ -86,6 +90,20 @@ footer {
   <option value="instagram">انستقرام</option>
 </select>
 <button onclick="downloadVideo()">تحميل الفيديو</button>
+
+<!-- 🔹 إعلان ثابت أسفل زر التحميل -->
+<div id="adBanner">
+<script>
+   atOptions = {
+     'key' : '2e39d5b44f9da61b139683bba01ebe0b',
+     'format' : 'iframe',
+     'height' : 50,
+     'width' : 320,
+     'params' : {}
+   };
+</script>
+<script src="https://www.highperformanceformat.com/2e39d5b44f9da61b139683bba01ebe0b/invoke.js"></script>
+</div>
 </main>
 
 <!-- 🔹 محتوى SEO -->
@@ -113,9 +131,6 @@ footer {
 <footer>
 &copy; 2026 Zain Video Downloader
 </footer>
-
-<!-- إعلان Adsterra -->
-<script src="https://pl28473015.effectivegatecpm.com/2b/af/4c/2baf4c184524e2ec7c2d96e2d143dd64.js"></script>
 
 <script>
 function downloadVideo() {
