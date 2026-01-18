@@ -61,6 +61,9 @@ button {
   border-radius: 6px;
   cursor: pointer;
 }
+button.instagram {
+  background-color: #e1306c;
+}
 section {
   background: white;
   padding: 15px;
@@ -97,10 +100,13 @@ footer {
 <select id="platform">
   <option value="tiktok">تيك توك</option>
   <option value="facebook">فيسبوك</option>
-  <option value="instagram">انستقرام</option>
 </select>
 
 <button onclick="downloadVideo()">تحميل الفيديو</button>
+
+<!-- 🔹 زر خاص لإنستقرام -->
+<button class="instagram" onclick="openInstagram()">تحميل فيديو انستقرام</button>
+<p style="font-size:14px;color:#555;">ملاحظة: إنستقرام يتطلب لصق الرابط داخل صفحة التحميل</p>
 
 <!-- 🔹 إعلان -->
 <div id="adBanner">
@@ -156,12 +162,16 @@ function downloadVideo() {
     else if (platform === "facebook") {
         redirectUrl = "https://fdown.net/download.php?URL=" + encodeURIComponent(url);
     }
-    else if (platform === "instagram") {
-        alert("سيتم تحويلك إلى صفحة تحميل إنستقرام");
-        redirectUrl = "https://snapinsta.app/?url=" + encodeURIComponent(url);
-    }
 
-    window.open(redirectUrl, "_blank");
+    if (redirectUrl !== "") {
+        window.open(redirectUrl, "_blank");
+    }
+}
+
+// دالة زر إنستقرام
+function openInstagram() {
+    alert("إنستقرام يمنع التحميل المباشر، سيتم فتح صفحة التحميل");
+    window.open("https://snapinsta.app/", "_blank");
 }
 </script>
 
