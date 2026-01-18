@@ -14,15 +14,12 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://zain00091-design.github.io/video_downloader/">
 
-<!-- 🔹 Open Graph مع صورة جذابة -->
+<!-- 🔹 Open Graph -->
 <meta property="og:title" content="تحميل فيديو تيك توك وانستقرام وفيسبوك">
 <meta property="og:description" content="أداة مجانية لتحميل فيديوهات التواصل الاجتماعي بسهولة.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zain00091-design.github.io/video_downloader/">
 <meta property="og:image" content="arrow.png">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:type" content="image/png">
 
 <!-- تويتر -->
 <meta name="twitter:card" content="summary_large_image">
@@ -96,48 +93,45 @@ footer {
 
 <main>
 <input type="text" id="videoUrl" placeholder="أدخل رابط الفيديو هنا">
+
 <select id="platform">
   <option value="tiktok">تيك توك</option>
   <option value="facebook">فيسبوك</option>
   <option value="instagram">انستقرام</option>
 </select>
+
 <button onclick="downloadVideo()">تحميل الفيديو</button>
 
-<!-- 🔹 إعلان ثابت أسفل زر التحميل -->
+<!-- 🔹 إعلان -->
 <div id="adBanner">
 <script>
-   atOptions = {
-     'key' : '2e39d5b44f9da61b139683bba01ebe0b',
-     'format' : 'iframe',
-     'height' : 50,
-     'width' : 320,
-     'params' : {}
-   };
+atOptions = {
+  'key' : '2e39d5b44f9da61b139683bba01ebe0b',
+  'format' : 'iframe',
+  'height' : 50,
+  'width' : 320,
+  'params' : {}
+};
 </script>
 <script src="https://www.highperformanceformat.com/2e39d5b44f9da61b139683bba01ebe0b/invoke.js"></script>
 </div>
 </main>
 
-<!-- 🔹 محتوى SEO -->
 <section>
 <h2>كيفية استخدام الأداة</h2>
 <p>
-1. انسخ رابط الفيديو من تيك توك أو انستقرام أو فيسبوك.<br>
-2. الصق الرابط في الحقل أعلاه.<br>
-3. اختر المنصة واضغط تحميل.<br>
-سيتم تحويلك لصفحة التحميل مباشرة.
+1. انسخ رابط الفيديو.<br>
+2. الصق الرابط في الحقل.<br>
+3. اختر المنصة واضغط تحميل.
 </p>
 
 <h2>مميزات الموقع</h2>
 <ul>
 <li>بدون برامج</li>
 <li>سريع وسهل</li>
-<li>يعمل على الهاتف والكمبيوتر</li>
+<li>يعمل على الهاتف</li>
 <li>مجاني 100%</li>
 </ul>
-
-<h2>المنصات المدعومة</h2>
-<p>تيك توك – انستقرام – فيسبوك</p>
 </section>
 
 <footer>
@@ -158,10 +152,13 @@ function downloadVideo() {
 
     if (platform === "tiktok") {
         redirectUrl = "https://snapsave.app/redirect?url=" + encodeURIComponent(url);
-    } else if (platform === "facebook") {
+    }
+    else if (platform === "facebook") {
         redirectUrl = "https://fdown.net/download.php?URL=" + encodeURIComponent(url);
-    } else if (platform === "instagram") {
-        redirectUrl = "https://save-insta.com/download?url=" + encodeURIComponent(url);
+    }
+    else if (platform === "instagram") {
+        alert("سيتم تحويلك إلى صفحة تحميل إنستقرام");
+        redirectUrl = "https://snapinsta.app/?url=" + encodeURIComponent(url);
     }
 
     window.open(redirectUrl, "_blank");
