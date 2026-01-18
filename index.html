@@ -4,44 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- 🔹 Favicon جذاب -->
+<!-- Favicon -->
 <link rel="icon" href="arrow.png" type="image/png">
 <link rel="apple-touch-icon" href="arrow.png">
 
-<!-- 🔹 SEO أساسي -->
+<!-- SEO -->
 <title>تحميل فيديو تيك توك وانستقرام وفيسبوك | أداة مجانية</title>
 <meta name="description" content="تحميل فيديو تيك توك بدون علامة مائية، تحميل فيديو انستقرام وفيسبوك بجودة عالية، أداة مجانية تعمل على الهاتف مباشرة.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://zain00091-design.github.io/video_downloader/">
 
-<!-- 🔹 Open Graph -->
+<!-- Open Graph -->
 <meta property="og:title" content="تحميل فيديو تيك توك وانستقرام وفيسبوك">
 <meta property="og:description" content="أداة مجانية لتحميل فيديوهات التواصل الاجتماعي بسهولة.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://zain00091-design.github.io/video_downloader/">
 <meta property="og:image" content="arrow.png">
 
-<!-- تويتر -->
+<!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="arrow.png">
-
-<!-- 🔹 Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Zain Video Downloader",
-  "operatingSystem": "Web",
-  "applicationCategory": "UtilitiesApplication",
-  "description": "أداة ويب مجانية لتحميل فيديوهات تيك توك وانستقرام وفيسبوك بدون برامج.",
-  "url": "https://zain00091-design.github.io/video_downloader/",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  }
-}
-</script>
 
 <style>
 body { font-family: Arial; background-color: #f0f0f0; margin: 0; padding-bottom: 70px; text-align: center; }
@@ -54,36 +36,13 @@ input, select, button {
   width: 90%;
   max-width: 400px;
 }
-button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-button.instagram {
-  background-color: #e1306c;
-}
-section {
-  background: white;
-  padding: 15px;
-  margin: 15px auto;
-  max-width: 800px;
-  border-radius: 10px;
-  text-align: right;
-}
-footer {
-  background-color: #333;
-  color: white;
-  padding: 10px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-}
-#adBanner {
-  margin-top: 15px;
-  text-align: center;
-}
+button { background-color: #28a745; color: white; border: none; border-radius: 6px; cursor: pointer; }
+button.instagram { background-color: #e1306c; }
+button.instagram-option { display:block; margin:5px auto; width:80%; max-width:300px; background:#ff3366; }
+section { background: white; padding: 15px; margin: 15px auto; max-width: 800px; border-radius: 10px; text-align: right; }
+footer { background-color: #333; color: white; padding: 10px; position: fixed; bottom: 0; width: 100%; }
+#adBanner { margin-top: 15px; text-align: center; }
+#instagramOptions { display:none; margin-top:10px; }
 </style>
 </head>
 
@@ -104,20 +63,21 @@ footer {
 
 <button onclick="downloadVideo()">تحميل الفيديو</button>
 
-<!-- 🔹 زر خاص لإنستقرام -->
-<button class="instagram" onclick="openInstagram()">تحميل فيديو انستقرام</button>
-<p style="font-size:14px;color:#555;">ملاحظة: إنستقرام يتطلب لصق الرابط داخل صفحة التحميل</p>
+<!-- زر إنستقرام -->
+<button class="instagram" onclick="showInstagramOptions()">تحميل فيديو انستقرام</button>
+<p style="font-size:14px;color:#555;">⚠️ إنستقرام يتطلب لصق الرابط داخل صفحة التحميل</p>
 
-<!-- 🔹 إعلان -->
+<!-- خيارات إنستقرام -->
+<div id="instagramOptions">
+  <button class="instagram-option" onclick="openInstagram('https://snapinsta.app/')">SnapInsta.app</button>
+  <button class="instagram-option" onclick="openInstagram('https://igram.world/')">iGram.world</button>
+  <button class="instagram-option" onclick="openInstagram('https://instasave.org/')">InstaSave.org</button>
+</div>
+
+<!-- إعلان -->
 <div id="adBanner">
 <script>
-atOptions = {
-  'key' : '2e39d5b44f9da61b139683bba01ebe0b',
-  'format' : 'iframe',
-  'height' : 50,
-  'width' : 320,
-  'params' : {}
-};
+atOptions = { 'key':'2e39d5b44f9da61b139683bba01ebe0b','format':'iframe','height':50,'width':320,'params':{} };
 </script>
 <script src="https://www.highperformanceformat.com/2e39d5b44f9da61b139683bba01ebe0b/invoke.js"></script>
 </div>
@@ -128,7 +88,7 @@ atOptions = {
 <p>
 1. انسخ رابط الفيديو.<br>
 2. الصق الرابط في الحقل.<br>
-3. اختر المنصة واضغط تحميل.
+3. اختر المنصة واضغط تحميل، أو استخدم زر إنستقرام واختر الموقع.
 </p>
 
 <h2>مميزات الموقع</h2>
@@ -149,29 +109,27 @@ function downloadVideo() {
     const url = document.getElementById("videoUrl").value.trim();
     const platform = document.getElementById("platform").value;
 
-    if (!url) {
-        alert("⚠️ الرجاء إدخال رابط الفيديو");
-        return;
-    }
+    if (!url) { alert("⚠️ الرجاء إدخال رابط الفيديو"); return; }
 
     let redirectUrl = "";
 
     if (platform === "tiktok") {
         redirectUrl = "https://snapsave.app/redirect?url=" + encodeURIComponent(url);
-    }
-    else if (platform === "facebook") {
+    } else if (platform === "facebook") {
         redirectUrl = "https://fdown.net/download.php?URL=" + encodeURIComponent(url);
     }
 
-    if (redirectUrl !== "") {
-        window.open(redirectUrl, "_blank");
-    }
+    if (redirectUrl !== "") window.open(redirectUrl, "_blank");
 }
 
-// دالة زر إنستقرام
-function openInstagram() {
-    alert("إنستقرام يمنع التحميل المباشر، سيتم فتح صفحة التحميل");
-    window.open("https://snapinsta.app/", "_blank");
+// زر إنستقرام
+function showInstagramOptions() {
+    const div = document.getElementById("instagramOptions");
+    div.style.display = div.style.display === "none" ? "block" : "none";
+}
+
+function openInstagram(site) {
+    window.open(site, "_blank");
 }
 </script>
 
